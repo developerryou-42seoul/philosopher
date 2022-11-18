@@ -6,7 +6,7 @@
 /*   By: sryou <sryou@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 12:04:19 by sryou             #+#    #+#             */
-/*   Updated: 2022/11/12 16:46:35 by sryou            ###   ########.fr       */
+/*   Updated: 2022/11/18 16:19:57 by sryou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int	is_wrong_argument(t_data *data)
 		data->time_to_die <= 0 || \
 		data->number_of_times_each_philosopher_must_eat < 0)
 		return (1);
-	if (data->check_number_of_times && data->number_of_times_each_philosopher_must_eat == 0)
+	if (data->check_number_of_times && \
+		data->number_of_times_each_philosopher_must_eat == 0)
 		return (1);
 	return (0);
 }

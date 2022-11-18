@@ -6,7 +6,7 @@
 /*   By: sryou <sryou@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 03:11:22 by sryou             #+#    #+#             */
-/*   Updated: 2022/11/07 14:56:06 by sryou            ###   ########.fr       */
+/*   Updated: 2022/11/12 16:24:14 by sryou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ typedef struct s_data
 	int				isend;
 	long long		start_time;
 	pthread_mutex_t	*fork;
-	pthread_mutex_t	print;
+	pthread_mutex_t	mutex_isend;
+	pthread_mutex_t	mutex_eat_time;
+	pthread_mutex_t	mutex_count_eating;
 }	t_data;
 
 typedef struct s_philo
@@ -50,9 +52,9 @@ void		init_philo(t_data *data, t_philo *philo, int idx);
 
 int			is_wrong_argument(t_data *data);
 int			ft_atoi(char *str);
-void		ft_printf(t_data *data, t_philo *philo, char *str, int islock);
+int			ft_printf(t_data *data, t_philo *philo, char *str);
 long long	ft_time(void);
-void		ft_usleep(t_data *data, long long ms);
+void		ft_usleep(long long ms);
 
 void		*ft_philo(void *argv);
 void		ft_philo_isend(t_data *data, t_philo *philosophers);

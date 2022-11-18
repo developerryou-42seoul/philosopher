@@ -6,7 +6,7 @@
 /*   By: sryou <sryou@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 01:46:30 by sryou             #+#    #+#             */
-/*   Updated: 2022/11/07 14:18:58 by sryou            ###   ########.fr       */
+/*   Updated: 2022/11/12 16:23:46 by sryou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	init_mutex(t_data *data)
 	idx = 0;
 	while (idx < data->number_of_philosophers)
 		pthread_mutex_init(&(data->fork[idx++]), NULL);
-	pthread_mutex_init(&(data->print), NULL);
+	pthread_mutex_init(&(data->mutex_isend), NULL);
+	pthread_mutex_init(&(data->mutex_eat_time), NULL);
+	pthread_mutex_init(&(data->mutex_count_eating), NULL);
 	return (0);
 }
 
